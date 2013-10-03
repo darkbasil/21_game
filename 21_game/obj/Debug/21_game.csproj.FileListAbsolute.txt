@@ -1,0 +1,5 @@
+C:\Users\Lin\Documents\GitHub\21_game\21_game\bin\Debug\21_game.dll
+C:\Users\Lin\Documents\GitHub\21_game\21_game\bin\Debug\21_game.pdb
+C:\Users\Lin\Documents\GitHub\21_game\21_game\obj\Debug\21_game.csprojResolveAssemblyReference.cache
+C:\Users\Lin\Documents\GitHub\21_game\21_game\obj\Debug\21_game.dll
+C:\Users\Lin\Documents\GitHub\21_game\21_game\obj\Debug\21_game.pdb
