@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 
@@ -35,3 +36,32 @@ namespace _21_game
 	    public double Cash { get; private set; }
 	}
 }
+=======
+﻿using System;
+using System.Collections.Generic;
+
+namespace _21_game
+{
+	public class Player : Member
+	{
+		const double StartCash = 500;
+		
+		public List<Card> Hand { get; set; }
+
+		public Double Cash { get; set; }
+
+
+		public Player()
+		{
+			Hand = new List<Card>();
+			Cash = StartCash;
+		}
+
+		public Player(List<Card> hand)
+		{
+			Hand = hand;
+			Cash = StartCash;
+		}
+	}
+}
+>>>>>>> add Moq framework

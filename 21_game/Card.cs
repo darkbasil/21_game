@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 using System;
 
@@ -30,3 +31,27 @@ namespace _21_game
 	    public int Rank { get; private set; }
 	}
 }
+=======
+﻿
+using System;
+
+namespace _21_game
+{
+	public class Card
+	{
+		private string _color { get; set; }
+		private int _rank { get; set; }
+
+		public Card(string color, int rank)
+		{
+			_color = color;
+			_rank = rank;
+		}
+
+		public int GetRank()
+		{
+			return _rank;
+		}
+	}
+}
+>>>>>>> add Moq framework
