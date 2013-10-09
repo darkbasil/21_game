@@ -4,7 +4,6 @@
 	{
 		public int Calculate(Member member)
 		{
-            // имя переменной было форматировано неверно
 			int sumPoints = 0;
 			foreach (var card in member.Hand)
 			{

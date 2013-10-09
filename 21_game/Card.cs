@@ -1,31 +1,19 @@
-using System;
-
 namespace _21_game
 {
+    // Задавать масть строкой не слишком удобно, лучше сделать Enum
 	public class Card
 	{
-        //private string _color { get; set; }
-        //private int _rank { get; set; }
-
-        //public string Color
-        //{
-        //    get
-        //    {
-        //        return _color;
-        //    }
-        //}
-
-        //public int Rank
-        //{
-        //    get
-        //    {
-        //        return _rank;
-        //    }
-        //}
-
-        // Р‘РѕР»РµРµ РєСЂР°С‚РєРёР№ СЌРєРІРёРІР°Р»РµРЅС‚
-	    public string Color { get; set; }
+        public CardColor Color { get; set; }
 
 	    public int Rank { get; set; }
 	}
+
+    // Перечисление мастей
+    public enum CardColor
+    {
+        Hearts,
+        Diamonds,
+        Clubs,
+        Spades
+    }
 }
