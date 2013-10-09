@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21_game", "21_game.csproj", "{041439C7-89C6-4622-A6CC-0434EABACBB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointsCalculateTest", "..\PointsCalculateTest\PointsCalculateTest.csproj", "{C5CFB121-EB9C-494C-BBD5-833F23FE8C11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21_game.Tests", "..\PointsCalculateTest\21_game.Tests.csproj", "{C5CFB121-EB9C-494C-BBD5-833F23FE8C11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

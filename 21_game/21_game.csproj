@@ -39,10 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Round.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="Dealer.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Points.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
