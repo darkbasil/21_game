@@ -5,7 +5,7 @@ using Moq;
 namespace _21_game.Tests
 {
 	[TestFixture]
-    public class MemberTests
+    public class PlayerTests
 	{
 		[Test]
 		public void AceIsElevenTest()
@@ -82,29 +82,62 @@ namespace _21_game.Tests
 		}
 
 		[Test]
-		public void MakeBetTest()
+		public void SayHitMeTest()
 		{
 			//arrange
-			var player = new Player();
+			var hand = new List<Card>
+			{
+				new Card
+				{
+					Rank = Rank.Ten
+				},
+				new Card
+				{
+					Rank = Rank.Five
+				},
+				new Card
+				{
+					Rank = Rank.Ace
+				}
+			};
+
+			var player = Mock.Of<Player>(p => p.Hand == hand);
 
 			//act
-			player.MakeBet(30.0);
+			var say = player.Say();
 
 			//assert
-			Assert.AreEqual(player.Bet, 30.0);
+			Assert.AreEqual(say, "Hit me");			
 		}
 
 		[Test]
-		public void CashChangeAfterBetTest()
+		public void SayStopTest()
 		{
 			//arrange
-			var player = new Player();
+			var hand = new List<Card>
+			{
+				new Card
+				{
+					Rank = Rank.Ten
+				},
+				new Card
+				{
+					Rank = Rank.Five
+				},
+				new Card
+				{
+					Rank = Rank.Five
+				}
+			};
+
+			var player = Mock.Of<Player>(p => p.Hand == hand);
 
 			//act
-			player.MakeBet(30.0);
+			var say = player.Say();
 
 			//assert
-			Assert.AreEqual(player.Cash, 470.0);
+			Assert.AreEqual(say, "Stop");
+
 		}
 
 	}

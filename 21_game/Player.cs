@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _21_game
+﻿namespace _21_game
 {
 	public class Player : Member
 	{
@@ -9,25 +7,9 @@ namespace _21_game
         public Player()
         {
             Cash = StartCash;
-        }
-
-		public Boolean MakeBet(double Value)
-		{			
-			if (Cash >= Value)
-			{
-				Bet = Value;
-				Cash -= Bet;
-				return true;
-			}
-			else
-			{
-				Bet = 0;
-				return false;
-			}
-			
-		}
+        }		
 
 	    public double Cash { get; set; }
-		public double Bet { get; set; }
+
 	}
 }
