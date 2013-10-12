@@ -26,5 +26,9 @@ Thumbs.db
 obj/
 [Rr]elease*/
 _ReSharper*/
+<<<<<<< HEAD
 [Pp]ackages*/
+=======
+[Pp]ackage*/
+>>>>>>> ad52eb6afa23166f3206eae27a40621309e37686
 [Tt]est[Rr]esult*
