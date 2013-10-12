@@ -16,7 +16,7 @@ namespace _21_game
 			while (true)
 			{
 				var r = new Random();
-				card.Rank = r.Next(1,13);
+				card.Rank = (Rank)r.Next(1,13);
 				if (!CardsOnDesk.Contains(card))
 				{
 					CardsOnDesk.Add(card);
@@ -37,26 +37,23 @@ namespace _21_game
 
 		public void CheckHands(Player player, Member dealer)
 		{
-			player.Calculate();
-			dealer.Calculate();
-
-			if (dealer.Points <= 21)
-			{							 
-				if (player.Points <= 21)
+            if (dealer.GetPoints() <= 21)
+			{
+                if (player.GetPoints() <= 21)
 				{
-					if (player.Points > dealer.Points)			 //у игрока больше, чем у дилера, но нет перебора - игрок
+                    if (player.GetPoints() > dealer.GetPoints())			 //у игрока больше, чем у дилера, но нет перебора - игрок
 					{											 //получает удвоенную ставку
 						player.Cash += player.Bet*2;
 					}
-					else if (player.Points == dealer.Points)	 //одинаковое количество очков - игрок получает свою ставку 
+                    else if (player.GetPoints() == dealer.GetPoints())	 //одинаковое количество очков - игрок получает свою ставку 
 					{
 						player.Cash += player.Bet;
 					}
 				}
 			}
-			else if (dealer.Points > 21)						 //перебор у дилера
+            else if (dealer.GetPoints() > 21)						 //перебор у дилера
 			{
-				if (player.Points <= 21)						 
+                if (player.GetPoints() <= 21)						 
 				{
 					player.Cash += player.Bet*2;
 				}

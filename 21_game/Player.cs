@@ -9,7 +9,6 @@ namespace _21_game
         public Player()
         {
             Cash = StartCash;
-	        Points = 0;
         }
 
 		public Boolean MakeBet(double Value)
@@ -22,6 +21,7 @@ namespace _21_game
 			}
 			else
 			{
+				Bet = 0;
 				return false;
 			}
 			

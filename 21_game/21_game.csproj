@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardColor.cs" />
+    <Compile Include="Rank.cs" />
     <Compile Include="Round.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Dealer.cs" />

@@ -2,10 +2,6 @@
 {
 	public class Dealer	: Member
 	{
-		public Dealer()
-        {
-            Points = 0;
-        }
 
 	}
 }

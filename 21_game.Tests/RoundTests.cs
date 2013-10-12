@@ -15,11 +15,11 @@ namespace _21_game.Tests
 			{
 				new Card
 				{
-					Rank = 10
+					Rank = Rank.Ten
 				},
 				new Card
 				{
-					Rank = 13
+					Rank = Rank.King
 				}
 			};
 
@@ -27,11 +27,11 @@ namespace _21_game.Tests
 			{
 				new Card
 				{
-					Rank = 1
+					Rank = Rank.Ace
 				},
 				new Card
 				{
-					Rank = 10
+					Rank = Rank.King
 				}
 			};
 
@@ -56,15 +56,15 @@ namespace _21_game.Tests
 			{
 				new Card
 				{
-					Rank = 10
+					Rank = Rank.King
 				},
 				new Card
 				{
-					Rank = 5
+					Rank = Rank.Five
 				},
 				new Card
 				{
-					Rank = 4
+					Rank = Rank.Four
 				}
 			};
 
@@ -72,11 +72,11 @@ namespace _21_game.Tests
 			{
 				new Card
 				{
-					Rank = 7
+					Rank = Rank.Seven
 				},
 				new Card
 				{
-					Rank = 10
+					Rank = Rank.Ten
 				}
 			};
 

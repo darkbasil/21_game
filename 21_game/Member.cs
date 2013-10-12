@@ -4,35 +4,41 @@ namespace _21_game
 {
     public abstract class Member
     {
-        public IList<Card> Hand { get; set; }
-		public int Points { get; set; }
+        protected Member()
+        {
+            Hand = new List<Card>();
+        }
 
-		public void Calculate()
-		{			
+        public IList<Card> Hand { get; set; }
+
+        public int GetPoints()
+		{
+		    int points = 0;
 			foreach (var card in Hand)
 			{
-				if (card.Rank != 1)
+				if ((int)card.Rank != 1)
 				{
-					if (card.Rank < 10)
+                    if ((int)card.Rank < 10)
 					{
-						Points += card.Rank;
+                        points += (int)card.Rank;
 					}
 					else
 					{
-						Points += 10;
+                        points += 10;
 					}
 				}
-				else if (Points + 11 <= 21)
+                else if (points + 11 <= 21)
 				{
-					Points += 11;
+                    points += 11;
 				}
 				else
 				{
-					Points += 1;
+                    points += 1;
 				}
-
 			}
-			
+
+		    return points;
+
 		}
     }
 }
