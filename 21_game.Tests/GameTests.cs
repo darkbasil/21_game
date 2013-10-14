@@ -6,7 +6,7 @@ namespace _21_game.Tests
 	public class GameTests
 	{
 		[Test]
-		public void TestMethod1()
+		public void StartGameTest()
 		{
 		}
 	}
