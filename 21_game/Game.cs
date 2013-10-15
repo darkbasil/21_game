@@ -10,7 +10,7 @@
 			var player = new Player();
 			var dealer = new Dealer();			
 
-			while (player.Cash >= MinCash)
+			while ((player.Cash >= MinCash) || (player.Say() == "Exit"))
 			{
 				var round = new Round();
 				round.MakeBet(player, ValueBet);

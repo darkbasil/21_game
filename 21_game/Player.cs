@@ -7,7 +7,12 @@
         public Player()
         {
             Cash = StartCash;
-        }		
+        }
+
+		public string Say(string exit)
+		{
+			return exit;
+		}
 
 	    public double Cash { get; set; }
 

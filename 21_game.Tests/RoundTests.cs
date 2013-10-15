@@ -152,5 +152,19 @@ namespace _21_game.Tests
 			//assert
 			Assert.AreEqual(player.Cash, 470.0);
 		}
+
+		[Test]
+		public void GetCardTest()
+		{
+			//arrange
+			var player = Mock.Of<Player>(p => p.Hand == new List<Card>());			
+			var round = Mock.Of<Round>();
+
+			//act
+			round.GetCardFromDeck(player);
+
+			//assert
+			Assert.Contains(player.Hand[0],round.CardsOnDesk);
+		}
 	}
 }
