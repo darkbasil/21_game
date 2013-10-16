@@ -5,12 +5,29 @@ namespace _21_game
 {
     public class Round
     {
-        public readonly List<Card> CardsOnDesk = new List<Card>();			//выданные карты
+        /// <summary>
+        /// Карты на столе
+        /// </summary>
+        public readonly List<Card> CardsOnDesk = new List<Card>();
+
+        /// <summary>
+        /// Карты в колоде
+        /// </summary>
+        public readonly List<Card> Deck;     
+
+        /// <summary>
+        /// Ставка
+        /// </summary>
         public double Bet { get; private set; }
 
+        public Round()
+        {
+            Deck = GetDeck();
+        }
 
-        // Почему метод статический?
-        private static List<Card> GetDeck()
+
+        // TODO : почему метод был статический? Он вызывается только в экземпляре
+        private List<Card> GetDeck()
         {
             var deck = new List<Card>();
 
@@ -33,21 +50,28 @@ namespace _21_game
             player.Cash -= Bet;
         }
 
-        public void GetCardFromDeck(Member member)					//получение карты из колоды
+        /// <summary>
+        /// Участник получает карту
+        /// </summary>
+        /// <param name="member">Участника игры</param>
+        public void GetCardFromDeck(Member member)					
         {
+            // Карта случайным образом берётся из колоды и ПЕРЕКЛАДЫВЕТСЯ на стол и руку игрока
+            // Не надо каждый раз создавать колоду заново
+            // Не надо бегать по ней бесконечным циклом
             var r = new Random();
-            var card = GetDeck()[r.Next(1, 52)];
-            while (!CardsOnDesk.Contains(card))
-            {
-                card = GetDeck()[r.Next(1, 52)];
-                if (CardsOnDesk.Contains(card)) continue;
-                CardsOnDesk.Add(card);
-                member.Hand.Add(card);
-                return;
-            }
+            var card = Deck[r.Next(0, Deck.Count - 1)];
+            Deck.Remove(card);
+            CardsOnDesk.Add(card);
+            member.Hand.Add(card);
         }
 
-        public void GiveTwoCards(Player player, Dealer dealer)		//по две карты в начале раунда
+        /// <summary>
+        /// Игрок и дилер получают по две карты
+        /// </summary>
+        /// <param name="player">Игрок</param>
+        /// <param name="dealer">Дилер</param>
+        public void GiveTwoCards(Player player, Dealer dealer)		
         {
             GetCardFromDeck(player);
             GetCardFromDeck(player);
