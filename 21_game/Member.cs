@@ -9,6 +9,8 @@ namespace _21_game
             Hand = new List<Card>();
         }
 
+        // TODO : если число фраз игрока ограничено : {HitMe, Stop, Exit}, то enum снова будет лучше строк.
+        // Зачем этот метод? См. комменты к классу Game
 		public string Say()
 		{
 			switch (GetPoints())

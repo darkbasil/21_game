@@ -5,13 +5,19 @@
 		const double MinCash = 0.0;
 		private const double ValueBet = 50.0;
 
+        // TODO : библиотека логики игры не должна самостоятельно играть
+        // Мы только пытаемся разработать логику для повторного использования
+        // Идея была в том, что эта библиотека может быть использована каким-то decktob, web или mobile приложением
+        // С этих позиций класс Game должен предоставлять API для ведения игры, а не вести её сам
 		public Game()
 		{
+            // TODO : прямое владение экземплярами, протестировать Game будет невозможно
 			var player = new Player();
 			var dealer = new Dealer();			
 
 			while ((player.Cash >= MinCash) || (player.Say() == "Exit"))
 			{
+                // TODO : ещё прямое владение 
 				var round = new Round();
 				round.MakeBet(player, ValueBet);
 

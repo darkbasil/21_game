@@ -20,6 +20,8 @@ namespace _21_game
         /// </summary>
         public double Bet { get; private set; }
 
+        // TODO : Мы говорили, что Round должен владеть экземлярами dealer и player
+        // Сейчас раунд обслуживает каких-то участников, вовсе необязательно, что одних и тех же
         public Round()
         {
             Deck = GetDeck();
