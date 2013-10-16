@@ -7,11 +7,7 @@ namespace _21_game.Tests
 	public class GameTests
 	{
 		[Test]
-<<<<<<< HEAD
 		public void PlayerSayStopTest()
-=======
-		public void StartGameTest()
->>>>>>> 60c0355f2305ff33747f98ef7e3e9de938c04525
 		{
 			//arrange
 			var player = Mock.Of<Player>(); 
