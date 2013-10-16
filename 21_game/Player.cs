@@ -9,6 +9,7 @@
             Cash = StartCash;
         }
 
+        // TODO : WTF?
 		public string Say(string exit)
 		{
 			return exit;
