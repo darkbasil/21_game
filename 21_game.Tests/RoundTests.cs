@@ -4,7 +4,9 @@ using Moq;
 
 namespace _21_game.Tests
 {
-	[TestFixture]
+    [TestFixture]
+    // TODO : в тестах PlayerLoseTest(),PlayerWinTest(), CashChangeAfterBetTest()  стабы player и dealer используются как тестируемые объекты
+    // Они выполняют свою логику, изолированного тестирования Round не получается
 	public class RoundTests
 	{
 		[Test]
