@@ -18,13 +18,13 @@
 			while ((player.Cash >= MinCash) || (player.Say() == "Exit"))
 			{
                 // TODO : ещё прямое владение 
-				var round = new Round();
-				round.MakeBet(player, ValueBet);
+				var round = new Round(player, dealer);
+				round.MakeBet(ValueBet);
 
-				round.GiveTwoCards(player, dealer);
+				round.GiveTwoCards();
 
 				if ((player.GetPoints() == 21) || (dealer.GetPoints() == 21))
-					round.CheckHands(player, dealer);
+					round.CheckHands();
 				while (player.Say() != "Stop")
 				{
 					round.GetCardFromDeck(player);
@@ -34,7 +34,7 @@
 				{
 					round.GetCardFromDeck(dealer);
 				}
-				round.CheckHands(player, dealer);
+				round.CheckHands();
 
 			}
 		}

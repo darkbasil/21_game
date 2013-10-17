@@ -41,9 +41,9 @@ namespace _21_game.Tests
 			var dealer = Mock.Of<Dealer>(d => d.Hand == dealerHand);
 
 			//act
-			var round = new Round();
-			round.MakeBet(player, 30.0);
-			round.CheckHands(player, dealer);
+			var round = new Round(player, dealer);
+			round.MakeBet(30.0);
+			round.CheckHands();
 
 			//assert
 			Assert.AreEqual(player.Cash, 470.0);
@@ -85,9 +85,9 @@ namespace _21_game.Tests
 			var dealer = Mock.Of<Dealer>(d => d.Hand == dealerHand);
 
 			//act
-			var round = new Round();
-			round.MakeBet(player, 30.0);
-			round.CheckHands(player, dealer);
+			var round = new Round(player,dealer);
+			round.MakeBet(30.0);
+			round.CheckHands();
 
 			//assert
 			Assert.AreEqual(player.Cash, 530.0);
@@ -103,7 +103,7 @@ namespace _21_game.Tests
 			var round = Mock.Of<Round>();
 
 			//act
-			round.GiveTwoCards(player, dealer);
+			round.GiveTwoCards();
 
 			//assert
 			Assert.AreNotEqual(player.Hand[0], player.Hand[1]);	   
@@ -116,10 +116,10 @@ namespace _21_game.Tests
 			var player = Mock.Of<Player>(p => p.Hand == new List<Card>());
 			var dealer = Mock.Of<Dealer>(p => p.Hand == new List<Card>());
 
-			var round = Mock.Of<Round>();
+			var round = new Round(player, dealer);
 
 			//act
-			round.GiveTwoCards(player, dealer);
+			round.GiveTwoCards();
 
 			//assert
 			Assert.AreEqual(round.CardsOnDesk.Count, 4);	   			
@@ -134,7 +134,7 @@ namespace _21_game.Tests
 			var round = Mock.Of<Round>();			
 
 			//act
-			round.MakeBet(player, 30.0);
+			round.MakeBet(30.0);
 
 			//assert
 			Assert.AreEqual(round.Bet, 30.0);
@@ -149,7 +149,7 @@ namespace _21_game.Tests
 			var round = Mock.Of<Round>();			
 
 			//act
-			round.MakeBet(player, 30.0);
+			round.MakeBet(30.0);
 
 			//assert
 			Assert.AreEqual(player.Cash, 470.0);

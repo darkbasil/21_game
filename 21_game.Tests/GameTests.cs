@@ -19,8 +19,8 @@ namespace _21_game.Tests
 			var round = Mock.Of<Round>();
 
 			//act
-			round.MakeBet(player, 50);
-			round.GiveTwoCards(player, dealer);
+			round.MakeBet(50);
+			round.GiveTwoCards();
 			while (player.Say() != "Stop")
 			{
 				round.GetCardFromDeck(player);

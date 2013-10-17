@@ -22,8 +22,14 @@ namespace _21_game
 
         // TODO : Мы говорили, что Round должен владеть экземлярами dealer и player
         // Сейчас раунд обслуживает каких-то участников, вовсе необязательно, что одних и тех же
-        public Round()
+
+	    private Player _player;
+	    private Dealer _dealer;
+
+        public Round(Player player, Dealer dealer)
         {
+	        _player = player;
+	        _dealer = dealer;
             Deck = GetDeck();
         }
 
@@ -45,11 +51,11 @@ namespace _21_game
             return deck;
         }
 
-        public void MakeBet(Player player, double value)
+        public void MakeBet(double value)
         {
-            if (player.Cash < value) return;
+            if (_player.Cash < value) return;
             Bet = value;
-            player.Cash -= Bet;
+            _player.Cash -= Bet;
         }
 
         /// <summary>
@@ -73,40 +79,40 @@ namespace _21_game
         /// </summary>
         /// <param name="player">Игрок</param>
         /// <param name="dealer">Дилер</param>
-        public void GiveTwoCards(Player player, Dealer dealer)		
+        public void GiveTwoCards()		
         {
-            GetCardFromDeck(player);
-            GetCardFromDeck(player);
+            GetCardFromDeck(_player);
+            GetCardFromDeck(_player);
 
-            GetCardFromDeck(dealer);
-            GetCardFromDeck(dealer);
+            GetCardFromDeck(_dealer);
+            GetCardFromDeck(_dealer);
         }
 
-        public void CheckHands(Player player, Member dealer)
+        public void CheckHands()
         {
-            if (dealer.GetPoints() <= 21)
+            if (_dealer.GetPoints() <= 21)
             {
-                if (player.GetPoints() <= 21)
+                if (_player.GetPoints() <= 21)
                 {
-                    if (player.GetPoints() > dealer.GetPoints())			 //у игрока больше, чем у дилера, но нет перебора - игрок
+                    if (_player.GetPoints() > _dealer.GetPoints())			 //у игрока больше, чем у дилера, но нет перебора - игрок
                     {											 //получает удвоенную ставку
-                        player.Cash += Bet * 2;
+                        _player.Cash += Bet * 2;
                     }
-                    else if (player.GetPoints() == dealer.GetPoints())	 //одинаковое количество очков - игрок получает свою ставку 
+                    else if (_player.GetPoints() == _dealer.GetPoints())	 //одинаковое количество очков - игрок получает свою ставку 
                     {
-                        player.Cash += Bet;
+                        _player.Cash += Bet;
                     }
                 }
             }
-            else if (dealer.GetPoints() > 21)						 //перебор у дилера
+            else if (_dealer.GetPoints() > 21)						 //перебор у дилера
             {
-                if (player.GetPoints() <= 21)
+                if (_player.GetPoints() <= 21)
                 {
-                    player.Cash += Bet * 2;
+                    _player.Cash += Bet * 2;
                 }
                 else
                 {
-                    player.Cash += Bet;
+                    _player.Cash += Bet;
                 }
             }
             Bet = 0;
